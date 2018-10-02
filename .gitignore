@@ -1,0 +1,9 @@
+.DS_Store
+.vscode
+__pycache__
+*.pyc
+*.spec
+python_env
+dist
+data
+build
