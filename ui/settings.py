@@ -11,17 +11,9 @@ class App(QDialog):
  
     def __init__(self):
         super().__init__()
-        self.title = 'PatientPop Settings'
+        self.title = 'Settings'
         self.db_conn = sqlite3.connect(config.db_filepath)
-        self.set_up_settings_table()
         self.initUI()
-
-    def set_up_settings_table(self):
-        sql = """
-            CREATE TABLE IF NOT EXISTS settings (id integer PRIMARY KEY, username text, password text, status text);
-        """
-        cursor = self.db_conn.cursor()
-        cursor.execute(sql)
 
     def get_settings(self):
         sql = """

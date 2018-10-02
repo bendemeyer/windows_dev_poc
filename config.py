@@ -1,14 +1,11 @@
 import os
 
-
-base_path = os.path.join(os.environ['APPDATA'], 'WinDevPOC')
-if not os.path.exists(base_path):
-    os.makedirs(base_path)
+if 'ALLUSERSPROFILE' in os.environ:
+    base_path = os.path.join(os.environ['ALLUSERSPROFILE'], 'WinDevPOC')
+else:
+    base_path = os.path.abspath(os.path.join(os.path.expanduser('~'), '.windevpoc'))
 
 data_directory = 'data'
-data_path = os.path.join(base_path, data_directory)
-if not os.path.exists(data_path):
-    os.makedirs(data_path)
 
 db_filename = 'windevpoc.sqlite3'
 db_filepath = os.path.join(base_path, data_directory, db_filename)

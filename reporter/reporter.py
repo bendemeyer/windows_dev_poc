@@ -21,8 +21,11 @@ def do_report(status):
 
 
 def run():
-    status = get_status()
-    do_report(status)
+    try:
+        status = get_status()
+        do_report(status)
+    except:
+        pass
 
 
 if __name__ == '__main__':
